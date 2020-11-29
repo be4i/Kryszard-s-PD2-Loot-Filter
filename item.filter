@@ -46,7 +46,8 @@ ItemDisplay[vps CLVL<31]: %GREEN%!%WHITE%stamina
 ItemDisplay[wms CLVL<31]: %GREEN%!%WHITE%thaw
 ItemDisplay[(tsc OR isc OR vps OR wms) CLVL>30]:
 ItemDisplay[yps]: %GREEN%!%WHITE%ant
-ItemDisplay[key]: %GRAY%key%CONTINUE%
+ItemDisplay[CLVL>79 key]:
+ItemDisplay[CLVL<80 key]: %BLACK%¯%TAN%Î%BLACK%¯
 
 //Arrows & Bolts
 ItemDisplay[(aqv OR cqv) NMAG CLVL>6]:
@@ -104,9 +105,9 @@ ItemDisplay[(RUNE>20 AND RUNE<26)]: %DOT-62%%RED%¤¤¤¤ %PURPLE%%RUNENAME% %RED%¤¤
 ItemDisplay[RUNE>25]: %BORDER-62%%GREEN%%RUNENUM% %PURPLE%¤¤¤¤¤¤¤¤¤¤¤ %RED%%RUNENAME% %PURPLE%¤¤¤¤¤¤¤¤¤¤¤ %GREEN%%RUNENUM%
 
 //All Charms
-ItemDisplay[cm2 MAG !ID]: %TAN%*%BLUE% %NAME% %TAN%*
-ItemDisplay[cm1 OR cm3 MAG !ID]: %DOT-9B%%PURPLE%*%BLUE%   %NAME%   %PURPLE%*
-ItemDisplay[(cm1 OR cm2 OR cm3) UNI !ID]: %PX-68%%NAME%
+ItemDisplay[MAG !ID cm1]: %BLUE%° %PX-68%%TAN%charm %BLUE%°
+ItemDisplay[MAG !ID cm3]: %BLUE%Ö %DOT-9B%%TAN%CHARM %BLUE%Ö
+ItemDisplay[MAG !ID cm2]: %BLUE%< %TAN%large %BLUE%>
 
 //Good Charms
 ItemDisplay[cm3 (MAXDMG>6 AND LIFE>0)]: %TAN%Max Dmg %RED%Life %BLUE%Grand Charm 
@@ -237,13 +238,19 @@ ItemDisplay[cm3 TABSK49>0]: %PURPLE%Shadow Disciplines %TAN%Skiller
 ItemDisplay[cm3 TABSK50>0]: %PURPLE%Martial Arts %TAN%Skiller
 
 //Highlight Good Magic items
-ItemDisplay[jew MAG !ID]: %DOT-9A%%TAN%*%WHITE%*   %BLUE%%NAME%%WHITE%   *%TAN%*
+ItemDisplay[MAG !ID jew]: %DOT-9A%%RED%¤%ORANGE%¤%YELLOW%¤%GREEN%¤ %BLUE%%NAME% %GREEN%¤%YELLOW%¤%ORANGE%¤%RED%¤ 
 
 //Highlight Good Rare items
-ItemDisplay[(jew OR rin OR amu OR EQ7) RARE !ID]: %DOT-A8%%TAN%*%WHITE%*   %YELLOW%%NAME%%WHITE%   *%TAN%*
+ItemDisplay[RARE !ID amu]: %DOT-A8%%RED%÷÷ %YELLOW%%NAME% %RED%÷÷
+ItemDisplay[RARE !ID rin]: %DOT-A8%%RED%÷÷ %YELLOW%%NAME% %RED%÷÷
+ItemDisplay[RARE !ID jew]: %DOT-A8%%YELLOW%¤¤¤¤ %RED%J%ORANGE%E%YELLOW%W%GREEN%E%BLUE%L %YELLOW%¤¤¤¤
+ItemDisplay[RARE !ID EQ7 !ETH]: %DOT-A8%%RED%÷ %YELLOW%%NAME% %RED%÷
 
 //GG UNIQUES
-ItemDisplay[(rin OR amu OR uar OR ulc OR xea OR urn OR uap OR ci3 OR xtb OR uit OR 6lw OR 7gw OR 7gd OR obf OR ulm) UNI !ID]: %BORDER-68%%PURPLE%*%RED%*%ORANGE%*%YELLOW%*     %GOLD%%NAME%     %YELLOW%*%ORANGE%*%RED%*%PURPLE%*%NL%%GREEN%pick me up
+ItemDisplay[(uar OR ulc OR xea OR urn OR uap OR ci3 OR xtb OR uit OR 6lw OR 7gw OR 7gd OR obf OR ulm) UNI !ID]: %BORDER-68%%PURPLE%*%RED%*%ORANGE%*%YELLOW%*     %GOLD%%NAME%     %YELLOW%*%ORANGE%*%RED%*%PURPLE%*%NL%%GREEN%pick me up
+ItemDisplay[UNI !ID rin]: %BORDER-68%%GOLD%÷%RED%÷÷÷÷÷÷÷÷÷%GOLD%÷ %PURPLE%RING %GOLD%÷%RED%÷÷÷÷÷÷÷÷÷%GOLD%÷
+ItemDisplay[UNI !ID amu]: %BORDER-68%%GOLD%÷%RED%÷÷÷÷÷÷÷÷÷%GOLD%÷ %PURPLE%AMULET %GOLD%÷%RED%÷÷÷÷÷÷÷÷÷%GOLD%÷
+
 
 //OK UNIQUES
 //belts
@@ -262,7 +269,7 @@ ItemDisplay[(nee OR pa9 OR nea OR uts OR uow OR xsh OR xow OR pae OR nef) UNI !I
 ItemDisplay[(72a OR 7fl OR 7kr OR 7cr OR 7gm OR 9tw OR oba OR ama OR 6ws OR obc OR 7lw OR amf OR 7wh) UNI !ID]: %DOT-68%%YELLOW%*%TAN%*%GRAY%*     %GOLD%%NAME%%GRAY%     *%TAN%*%YELLOW%*
 
 //Rainbow Facet
-ItemDisplay[jew UNI !ID]: %BORDER-68%%RED%r%ORANGE%a%YELLOW%in%GREEN%b%BLUE%o%PURPLE%w     %GOLD%%NAME%%PURPLE%     r%BLUE%a%GREEN%in%YELLOW%b%ORANGE%o%RED%w%NL%%GREEN%pick me up
+ItemDisplay[UNI !ID jew]: %BORDER-68%%RED%°°°%YELLOW%°°°%GREEN%°°°%BLUE%°°° %PURPLE%JEWEL %BLUE%°°°%GREEN%°°°%YELLOW%°°°%RED%°°°
 
 //Good SET parts
 ItemDisplay[(amu OR rin OR uar OR ci3 OR 7qr OR uth OR paf) SET !ID]: %MAP-84%%PURPLE%*%RED%*%DARK_GREEN%*%GREEN%*     %NAME%     *%DARK_GREEN%*%RED%*%PURPLE%*
@@ -528,8 +535,9 @@ ItemDisplay[upma]: %NAME% %ORANGE%*{%WHITE%This Item + Perf %GRAY%O %WHITE%+ %OR
 ItemDisplay[imma]: %NAME% %ORANGE%*{%WHITE%This Item + %BLUE%Jewel %NL%%TAN%Note%WHITE%: Imbue White to %BLUE%Magic%WHITE% Map:}%CONTINUE%
 ItemDisplay[scou]: %NAME% %ORANGE%*{%WHITE%This Item + %ORANGE%Hel%NL%%TAN%Note%WHITE%: Revert back to a White Map:}%CONTINUE%
 ItemDisplay[lbox]: %MAP-4A%%NAME% %ORANGE%*{%WHITE%Two-Handed Weapon = 4 max%NL%One-Handed Weapon = 2 max%NL%Helmet, Chest, Shield = 2 max%NL%%TAN%Note%WHITE%: Use it to %TAN%Socket %WHITE%an Item}%CONTINUE%
-ItemDisplay[(t11 OR t12 OR t13 OR t14 OR t15 OR t16 OR t17 OR t18) MAG]: %MAP-7F%%NAME% %GREEN%*{%WHITE%To Modify Maps visit Anya%NL%%TAN%Note%WHITE%: Reroll = Mix with 3x Perf %GRAY%O}
-ItemDisplay[t11 OR t12 OR t13 OR t14 OR t15 OR t16 OR t17 OR t18]: %MAP-7F%%NAME% %GREEN%*{%TAN%Note%WHITE%: To Modify Maps visit Anya}
+ItemDisplay[t16]: %MAP-7F% %RED%%NAME% %WHITE%[T1]
+ItemDisplay[t18]: %MAP-7F% %RED%%NAME% %WHITE%[T2]
+ItemDisplay[t17]: %MAP-7F% %RED%%NAME% %WHITE%[T3]
 ItemDisplay[dcma OR dcbl OR dcho OR dcso]: %MAP-4A%%NAME% %ORANGE%*%CONTINUE%
 
 //Essences
